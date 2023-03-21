@@ -122,6 +122,7 @@ async function upload(files: { name: string; displayName: string }[], opts?: CFU
 		};
 
 		log(`Uploading ${file.name} to CurseForge...` + (clientFileID ? `(child of ${clientFileID})` : ""));
+		log(JSON.stringify(options));
 
 		const response = await request(options);
 
