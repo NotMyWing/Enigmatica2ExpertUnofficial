@@ -131,7 +131,9 @@ async function upload(files: { name: string; displayName: string }[], opts?: CFU
 				clientFileID = response.id;
 			}
 		} else {
-			throw new Error(`Failed to upload ${file.name}: Invalid Response.`);
+			const responseText = response ? `Invalid response: ${JSON.stringify(response)}` : "Empty response";
+
+			throw new Error(`Failed to upload ${file.name}: ${responseText}.`);
 		}
 	}
 }
